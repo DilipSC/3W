@@ -5,7 +5,7 @@ const UserDetails= new mongoose.Schema({
         type:String,
         required:true
     },
-    pointss:{
+    points:{
         type:Number,
         required:true,
         default:0
