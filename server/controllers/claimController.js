@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import User from "../models/models.js";
+import User from "../models/user.js";
+import History from "../models/history.js";
 
 export async function addUser(req,res){
     try{
@@ -40,6 +41,13 @@ export async function giveRandomPoints(req,res){
             {$inc:{points:randomPoints}},
             {new:true,upsert:true}
         )
+
+        const history = await History({
+            username,
+            pointsAdded:randomPoints
+        })
+
+        await history.save()
 
         if(!user){
             return res.status(404).json({"message":"user not found"})
