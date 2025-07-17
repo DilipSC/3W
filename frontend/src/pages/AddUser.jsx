@@ -2,8 +2,10 @@ import React from 'react'
 
 function AddUser() {
   return (
-    <div>
-      This is add AddUser
+    <div className='bg-black text-white'>
+      <select name="user">
+        <option>{name}</option>
+      </select>
     </div>
   )
 }
